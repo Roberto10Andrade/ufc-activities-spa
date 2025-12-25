@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Activity, getActivities } from '../data/activities';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
+import PageTitle from '../components/PageTitle';
 
 const activityTypes = [
   { value: 'COURSE', label: 'Curso' },
@@ -160,6 +161,7 @@ function SearchContent() {
 
   return (
     <div className="max-w-7xl mx-auto">
+      <PageTitle title="Pesquisar" />
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 pb-6 border-b border-gray-100 dark:border-gray-700">

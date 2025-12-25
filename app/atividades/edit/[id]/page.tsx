@@ -7,6 +7,7 @@ import ActivityForm from '@/app/components/ActivityForm'
 import { Activity, getActivities, setActivities } from '../../../data/activities'
 import { use } from 'react'
 import { CheckCircleIcon, XCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import PageTitle from '@/app/components/PageTitle'
 
 interface EditActivityProps {
   params: Promise<{ id: string }>
@@ -73,6 +74,7 @@ function EditActivityContent({ id }: { id: string }) {
 
   return (
     <div className="max-w-4xl mx-auto p-6">
+      <PageTitle title="Editar Atividade" />
       {message && (
         <div className={`mb-4 px-4 py-3 rounded flex items-center justify-between ${
           message.type === 'success' 

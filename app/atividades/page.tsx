@@ -6,6 +6,7 @@ import { Activity, getActivities, deleteActivity } from '../data/activities';
 import Link from 'next/link';
 import ActivityList from '../components/ActivityList';
 import { format } from 'date-fns';
+import PageTitle from '../components/PageTitle';
 
 function ActivitiesContent() {
   const searchParams = useSearchParams();
@@ -98,6 +99,7 @@ function ActivitiesContent() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <PageTitle title="Atividades" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
           {/* Cabeçalho */}

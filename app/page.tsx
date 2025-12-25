@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { format, parseISO } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import { Activity, getActivities } from './data/activities'
+import PageTitle from './components/PageTitle'
 
 export default function Home() {
   const [activities, setActivities] = useState<Activity[]>([])
@@ -56,6 +57,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen p-4 sm:p-8">
+      <PageTitle title="Início" />
       {/* Hero Section */}
       <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[var(--primary-color)] to-[var(--primary-color-dark)] p-8 text-white mb-8">
         <div className="relative z-10">

@@ -6,6 +6,7 @@ import Link from 'next/link'
 import ActivityForm from '../../components/ActivityForm'
 import { Activity, getActivities, setActivities } from '../../data/activities'
 import { ArrowLeftIcon, CheckCircleIcon, XCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import PageTitle from '../../components/PageTitle'
 
 interface Message {
   type: 'success' | 'error'
@@ -40,6 +41,7 @@ export default function NewActivity() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-white dark:bg-gray-900">
+      <PageTitle title="Nova Atividade" />
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Gradient background */}
