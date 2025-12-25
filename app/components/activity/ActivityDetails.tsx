@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-import { Activity, getActivities, deleteActivity } from '@/app/services/activities';
+import { Activity, getActivities, deleteActivity } from '@/app/data/activities';
 import { CalendarIcon, MapPinIcon, UserGroupIcon, UserIcon, ClockIcon, DocumentTextIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
 
