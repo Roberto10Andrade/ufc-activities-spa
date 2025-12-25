@@ -36,6 +36,8 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
+        <title>UFC Sobral - Atividades Acadêmicas</title>
+        <meta name="description" content="Sistema de gestão de atividades acadêmicas da UFC Sobral" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#1e40af" />
         <link rel="icon" href="/favicon.ico" />

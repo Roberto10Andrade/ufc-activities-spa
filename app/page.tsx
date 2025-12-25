@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { format, parseISO } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
-import { Activity } from './data/activities'
+import { Activity, getActivities } from './data/activities'
 
 export default function Home() {
   const [activities, setActivities] = useState<Activity[]>([])
@@ -17,38 +17,17 @@ export default function Home() {
   })
 
   useEffect(() => {
-    try {
-      const storedData = localStorage.getItem('activities')
-      const storedActivities: Activity[] = storedData ? JSON.parse(storedData) : []
-      
-      // Validate each activity has required fields
-      const validActivities = storedActivities.filter((activity): activity is Activity => {
-        return (
-          activity &&
-          typeof activity === 'object' &&
-          'id' in activity &&
-          'title' in activity &&
-          'startDate' in activity &&
-          'endDate' in activity &&
-          'status' in activity &&
-          'type' in activity
-        )
-      })
+    const loadedActivities = getActivities()
+    setActivities(loadedActivities)
 
-      setActivities(validActivities)
-
-      // Calculate statistics
-      setStats({
-        total: validActivities.length,
-        pending: validActivities.filter(a => a.status === 'PENDING').length,
-        inProgress: validActivities.filter(a => a.status === 'IN_PROGRESS').length,
-        completed: validActivities.filter(a => a.status === 'COMPLETED').length,
-        cancelled: validActivities.filter(a => a.status === 'CANCELLED').length,
-      })
-    } catch (error) {
-      console.error('Error loading activities:', error)
-      setActivities([])
-    }
+    // Calculate statistics
+    setStats({
+      total: loadedActivities.length,
+      pending: loadedActivities.filter(a => a.status === 'PENDING').length,
+      inProgress: loadedActivities.filter(a => a.status === 'IN_PROGRESS').length,
+      completed: loadedActivities.filter(a => a.status === 'COMPLETED').length,
+      cancelled: loadedActivities.filter(a => a.status === 'CANCELLED').length,
+    })
   }, [])
 
   const getStatusColor = (status: string) => {

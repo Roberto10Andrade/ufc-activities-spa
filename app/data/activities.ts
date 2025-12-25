@@ -174,13 +174,18 @@ export const defaultActivities: Activity[] = [
 export function getActivities(): Activity[] {
   if (typeof window === 'undefined') return defaultActivities;
   
-  const storedActivities = localStorage.getItem('activities');
-  if (!storedActivities) {
-    localStorage.setItem('activities', JSON.stringify(defaultActivities));
+  try {
+    const storedActivities = localStorage.getItem('activities');
+    if (!storedActivities) {
+      localStorage.setItem('activities', JSON.stringify(defaultActivities));
+      return defaultActivities;
+    }
+    
+    const parsed = JSON.parse(storedActivities);
+    return Array.isArray(parsed) && parsed.length > 0 ? parsed : defaultActivities;
+  } catch {
     return defaultActivities;
   }
-  
-  return JSON.parse(storedActivities);
 }
 
 export function setActivities(activities: Activity[]) {

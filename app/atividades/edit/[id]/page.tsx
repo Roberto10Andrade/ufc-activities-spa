@@ -8,6 +8,19 @@ import { Activity, getActivities, setActivities } from '../../../data/activities
 import { use } from 'react'
 import { CheckCircleIcon, XCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
+export function generateStaticParams() {
+  return [
+    { id: '1' },
+    { id: '2' },
+    { id: '3' },
+    { id: '4' },
+    { id: '5' },
+    { id: '6' },
+    { id: '7' },
+    { id: '8' },
+  ]
+}
+
 interface EditActivityProps {
   params: Promise<{ id: string }>
 }
