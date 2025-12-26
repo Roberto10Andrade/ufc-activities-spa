@@ -40,7 +40,7 @@ export default function RootLayout({
         <meta name="description" content="Sistema de gestão de atividades acadêmicas da UFC Sobral" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#1e40af" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/Imagem1.png" />
       </head>
       <body className={inter.className}>
         <AccessibilityProvider>
